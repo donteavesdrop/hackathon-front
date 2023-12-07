@@ -1,0 +1,9 @@
+.header {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+
+    background-color: rgb(2, 15, 92);
+}

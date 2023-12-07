@@ -1,0 +1,11 @@
+.layout {
+    display: flex;
+    position: relative;
+}
+
+.layout-page-content {
+    position: absolute;
+    left: 250px;
+    margin: 12px;
+    padding: 12px;
+}

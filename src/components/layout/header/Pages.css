@@ -1,0 +1,25 @@
+.pages-links {
+  padding: 12px;
+  left: 2px;
+}
+
+.single-link {
+  display: block;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+
+  font-size: 20pt;
+}
+
+.single-link:hover {
+  color: rgb(0, 0, 0);
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
