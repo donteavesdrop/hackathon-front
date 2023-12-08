@@ -8,10 +8,13 @@ const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // New state for error message
+
+  localStorage.removeItem("token");
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    localStorage.removeItem("token");
+
     try {
       console.log("Attempting login with username:", username, "and password:", password);
 
@@ -21,20 +24,18 @@ const Login = () => {
           password,
         },
       });
-      
 
       console.log("Login response:", loginResponse.data);
 
       const token = loginResponse.data;
-      // Store the token in localStorage or a state management system
       localStorage.setItem("token", token);
 
-      // Redirect to another page after successful login
+      // редирект при успешном входе
       navigate("/tasks");
     } catch (error) {
       localStorage.removeItem("token");
       console.error("Login failed:", error);
-      // Handle login error, show a message, or redirect to an error page
+      setError("Incorrect username or password"); 
     }
   };
 
@@ -60,6 +61,7 @@ const Login = () => {
         <button className="login-button" type="submit">
           Login
         </button>
+        {error && <p className="error-message">{error}</p>}
       </form>
     </div>
   );

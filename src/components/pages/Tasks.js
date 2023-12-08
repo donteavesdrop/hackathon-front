@@ -8,16 +8,27 @@ const Tasks = () => {
   const [tasks, setTasks] = useState([]);
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const checkLogin = async () => {
+      // Проверка наличия токена в localStorage
+      const token = localStorage.getItem("token");
+
+      // Если токен отсутствует, перенаправляем пользователя на страницу входа
+      if (!token) {
+        navigate("/");
+        return;
+      }
+    }
+    checkLogin();
+  } , [navigate]);
   const handleAssign = async () => {
     // Проверка наличия токена в localStorage
     const token = localStorage.getItem("token");
-
     // Если токен отсутствует, перенаправляем пользователя на страницу входа
     if (!token) {
       navigate("/");
       return;
     }
-
     try {
       console.log("Начало выполнения assign...");
 
